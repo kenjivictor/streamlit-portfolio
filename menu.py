@@ -18,17 +18,3 @@ def show_menu():
         
         st.link_button("🔗 Retrouvez-moi sur LinkedIn !", "https://www.linkedin.com/in/kenji-victor/", type="tertiary")
 
-
-def set_wide_layout():
-    st.markdown(
-        """
-        <style>
-            .main {
-                max-width: 100% !important;
-                padding-left: 2rem;
-                padding-right: 2rem;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
