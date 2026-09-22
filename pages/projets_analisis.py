@@ -1,13 +1,13 @@
 import streamlit as st
 from menu import show_menu
-from PIL import Image
+from streamlit_extras.scroll_to_element import scroll_to_element
 
 
 show_menu()
 
-
-st.title('Mes projets Data')
-st.header("Analyse & Insights")
+with st.container(key="haut_de_page"):
+    st.title('Mes projets Data')
+    st.header("Analyse & Insights")
 
 
 tab1, tab2, tab3 = st.tabs(["🚗 Projet Toys & Models", "🎞️ Projet Film Data Lab", "🌎 Mini-Projet : Séismes"])
@@ -27,11 +27,8 @@ with tab1:
                         """)
             
             if st.button("👉 Aperçu en bas de page"):
-                st.html("""
-                    <script>
-                        document.getElementById('tableau-de-bord-power-bi-toysmodels').scrollIntoView({behavior: 'smooth'});
-                    </script>
-                """, unsafe_allow_javascript=True)
+                scroll_to_element("tableau_de_bord_toysmodels", alignment="start")
+                st.rerun()
                 
             
             
@@ -135,8 +132,8 @@ with tab1:
             Enfin, on multiplie par 100 pour obtenir un pourcentage
                 """)
     
-    
-    st.subheader("Tableau de bord Power BI", anchor="tableau-de-bord-power-bi-toysmodels")
+    with st.container(key="tableau_de_bord_toysmodels"):
+        st.subheader("Tableau de bord Power BI")
     st.write("""
             Pour finir, voici une courte vidéo qui présente le tableau de bord final. 
 
@@ -152,17 +149,21 @@ with tab1:
 with tab2:
     st.subheader("🎞️ Projet Film Data Lab")
     with st.container(border=True):
-        st.write("""
-            ***Date de publication :** Janvier 2026*
-
-            **Description :** Création d’une application de recommandation de films.
-
-            **Technologies :** Python, Pandas, DuckDB, Seaborn, Streamlit, ScikitLearn (Machine Learning), API
-                    """)
         col1, col2 = st.columns(2)
         with col1:
+            st.write("""
+                ***Date de publication :** Janvier 2026*
+
+                **Description :** Création d’une application de recommandation de films.
+
+                **Technologies :** Python, Pandas, DuckDB, Seaborn, Streamlit, ScikitLearn (Machine Learning), API
+                    """)
             st.link_button("Voir le projet sur GitHub", "https://github.com/kenjivictor/projet_recommandation_films", icon="👉")
+            if st.button("👉 Aperçu en bas de page", key="btn_apercu_filmdatalab"):
+                scroll_to_element("tableau_de_bord_filmdatalab", alignment="start")
+                st.rerun()
         with col2:
+            st.image("media/projets/filmdatalab/accueil.png", width=400)
             st.link_button("Live Démo", "https://filmdatalab.streamlit.app/", icon="👉")
             st.write("**Username :** utilisateur / **Password :** utilisateurMDP")
     
@@ -222,6 +223,9 @@ with tab2:
         
         """)
     
+    with st.container(key="tableau_de_bord_filmdatalab"):
+        st.subheader("Aperçu de l'application")
+        st.image("media/projets/filmdatalab/accueil.png")
     
         
 with tab3:
@@ -253,3 +257,8 @@ with tab3:
         st.image('media/projets/seismes/capture1.png')
     with col2:
         st.image('media/projets/seismes/capture2.png')
+
+
+if st.button("⬆️ Haut de page"):
+    scroll_to_element("haut_de_page")
+    st.rerun()

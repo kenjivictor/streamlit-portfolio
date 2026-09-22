@@ -1,11 +1,12 @@
 import streamlit as st
 from menu import show_menu
+from streamlit_extras.scroll_to_element import scroll_to_element
 
 show_menu()
 
-
-st.title('Mes projets Data')
-st.subheader("Ingénierie & Architecture")
+with st.container(key="haut_de_page"):
+    st.title('Mes projets Data')
+    st.subheader("Ingénierie & Architecture")
 
 
 tab1, = st.tabs(["💵 Détection de fraude bancaire"])
@@ -164,6 +165,22 @@ with tab1:
                 """)
 
     st.divider()
+
+    st.subheader("Compétences mobilisées")
+    
+    st.write("""
+        Ce projet m’a permis de travailler sur :
+
+        - Architecture data cloud (avec GCP)
+        - Machine Learning appliqué à la fraude
+        - Simulation de système temps réel (avec FastAPI)
+        - Conteneurisation (avec Docker)
+        - Monitoring et observabilité (avec Prometheus/Grafana)
+        - Collaboration en équipe (gestion de code via GitHub)
+            """)
+
+
+    st.divider()
     
     st.subheader("Aperçus de l'application", anchor="apercu-fraud")
     col1, col2 = st.columns(2)
@@ -177,3 +194,8 @@ with tab1:
         st.image('media/projets/fraud/grafana.gif', caption="Le monitoring d'infrastructure avec Grafana")
     with col2:
         st.image('media/projets/fraud/prefect.gif', caption="Le monitoring d'entraînement continu du modèle avec Prefect")
+
+
+if st.button("⬆️ Haut de page"):
+    scroll_to_element("haut_de_page")
+    st.rerun()
