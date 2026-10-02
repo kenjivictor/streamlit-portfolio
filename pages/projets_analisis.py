@@ -12,6 +12,7 @@ with st.container(key="haut_de_page"):
 
 tab1, tab2, tab3 = st.tabs(["🚗 Projet Toys & Models", "🎞️ Projet Film Data Lab", "🌎 Mini-Projet : Séismes"])
 
+# Toys & Models
 with tab1:
     st.subheader("🚗 Projet Toys & Models")
     with st.container(border=True):
@@ -142,10 +143,9 @@ with tab1:
                     """)
     st.image("media/projets/toysmodels/Animation_toysmodels.gif")
     
-    
-    
-    
 
+
+# Film Data Lab
 with tab2:
     st.subheader("🎞️ Projet Film Data Lab")
     with st.container(border=True):
@@ -227,36 +227,108 @@ with tab2:
         st.subheader("Aperçu de l'application")
         st.image("media/projets/filmdatalab/accueil.png")
     
-        
+
+# Séismes
 with tab3:
     st.subheader("🌎 Mini-Projet : Séismes")
     with st.container(border=True):
-        st.write("""
-            ***Date de publication :** Février 2026*
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write("""
+                ***Date de publication :** Février 2026*
 
-            **Description :** Réalisation d'un tableau de bord pour une analyse mondiale des séismes sur 200 ans en 2 jours
+                **Description :** Réalisation d'un tableau de bord pour analyser 200ans de séismes à l'échelle mondiale, en seulement deux jours
 
-            **Technologies :** Python, Pandas, Power BI, DAX
-                    """)
+                **Technologies :** Python, Pandas, Power BI, DAX
+                        """)
+            if st.button("👉 Aperçu en bas de page", key="btn_apercu_seismes"):
+                scroll_to_element("tableau_de_bord_seismes", alignment="start")
+                st.rerun()
+        with col2:
+            st.image("media/projets/seismes/Geo_Vigie.jpg", width=400, caption="Organisme fictif (pour l'exemple)", )
+            
     
-    st.subheader("Contexte")
-    
-    st.write("""
-        Le but de ce projet était de concevoir un rapport Power BI à partir de données réelles ou fictives, en choisissant son thème, en deux jours maximum. 
-
-        J’ai choisi d’analyser les données historiques de séismes dans le monde de 1826 à 2026 pour un organisme international fictif de surveillance
-        des risques naturels souhaitant mieux comprendre la répartition et l’évolution des séismes dans le monde afin d’améliorer la prévention 
-        et l’information du public.
-        """)
-    
-    
-    st.subheader("Tableau de bord Power BI", anchor="tableau-de-bord-power-bi-seismes")
-    st.write("Ci-dessous les captures d’écrans du tableau de bord interactif réalisé : ")
     col1, col2 = st.columns(2)
     with col1:
-        st.image('media/projets/seismes/capture1.png')
+        st.subheader("Contexte")
+        
+        st.write("""
+            Le projet consistait à concevoir un rapport Power BI à partir de données réelles ou fictives, sur un thème libre, en un temps limité. 
+
+            J’ai choisi d’explorer les données historiques de séismes enregistrés entre 1826 et 2026, pour un organisme international fictif chargé la 
+            surveillance des risques naturels.
+            
+            L'objectif : mieux comprendre la répartition, l’évolution et les caractéristiques des séismes afin d’améliorer la prévention 
+            et l’information du public.
+            """)
+        
     with col2:
-        st.image('media/projets/seismes/capture2.png')
+        st.subheader("Le projet")
+        st.write("""
+            **Geo-Vigie**, organisme international de surveillance des risques naturels, souhaite disposer d'une vision claire et
+            synthétique de l'activité sismique mondiale.
+            
+            La mission confiée : analyser une ensemble de données couvrant 200 ans d'évènements sismiques, identifier les tendances majeures,
+            et mettre en avant les informations essentielles pour la prise de décision.
+            """)
+    
+    
+    st.divider()
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("Objectifs du tableau de bord")
+        st.write("""
+            Avant de concevoir les visuels, il était essentiel de définir clairement ce que le tableau de bord devait permettre 
+            de comprendre.
+            
+            L’objectif était de proposer une vue à la fois globale et précise de l’activité sismique mondiale, 
+            en combinant des indicateurs descriptifs et une analyse spatio-temporelle.
+            
+            Ces objectifs ont guidé la structure du rapport et le choix des visualisations.
+
+            1. **Analyse descriptive**
+                - Fréquence des séismes
+                - Distribution des magnitudes
+                - Zones géographiques les plus actives
+                - Profondeur des séismes
+            2. **Analyse spatio-temporelle**
+                - Clusters géographiques
+                - Activité sismique par région
+                - Identification de périodes atypiques
+
+            """)
+    with col2:
+        st.subheader("Etapes de réalisation")
+        st.write("""
+            Avant de créer un tableau de bord, il est essentiel de comprendre et préparer les données. Ceci apporte une fiabilité des données et ..
+            
+            1. **Vérification de la qualité des données**
+                - Nettoyage et traitement des dates
+                - Filtrage des types de séismes pertinants
+                - Harmonisation et simplification des noms de leiux  
+
+            2. **Création de variables calculées**
+                - Classification des magnitudes (Mineur, Léger, Modéré, Majeur, Destructeur...)
+                - Classification des profondeurs (Superficiel, intermédiaire, profond)  
+                
+            3. **Construction du rapport Power BI**
+                - Création de mesures DAX (nombre de séismes, magnitude moyenne...)
+                - Conception des visuels et mise en forme du tableau de bord
+        
+            """)
+    
+    
+    st.divider()
+    
+    with st.container(key="tableau_de_bord_seismes"):
+        st.subheader("Tableau de bord Power BI")
+        st.write("Ci-dessous les captures d’écrans du tableau de bord interactif : ")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image('media/projets/seismes/capture1.png')
+        with col2:
+            st.image('media/projets/seismes/capture2.png')
 
 
 if st.button("⬆️ Haut de page"):
