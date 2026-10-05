@@ -1,12 +1,13 @@
 import streamlit as st
 from menu import show_menu
-from streamlit_extras.scroll_to_element import scroll_to_element
+import utils
 
+utils.css_scroll_fluide()
 show_menu()
 
-with st.container(key="haut_de_page"):
-    st.title('Mes projets Data')
-    st.subheader("Ingénierie & Architecture")
+st.markdown('<div id="haut_de_page" style="scroll-margin-top: 5rem;"></div>', unsafe_allow_html=True)
+st.title('Mes projets Data')
+st.subheader("Ingénierie & Architecture")
 
 
 tab1, = st.tabs(["💵 Détection de fraude bancaire"])
@@ -23,13 +24,15 @@ with tab1:
 
                 **Technologies** : Python, Pandas, Docker, Streamlit, XGBoost (Machine Learning), FastAPI, Grafana, Prometheus, Redis, Prefect, BigQuery (Google Cloud Platform)
                         """)
-            st.link_button("Voir le projet sur GitHub", "https://github.com/kenjivictor/projet_fraude_cb", icon="👉")
-            if st.button("👉 Aperçu en bas de page"):
-                st.html("""
-                    <script>
-                        document.getElementById('apercu-fraud').scrollIntoView({behavior: 'smooth'});
-                    </script>
-                """, unsafe_allow_javascript=True)
+            st.link_button("Voir le projet sur GitHub", "https://github.com/kenjivictor/projet_fraude_cb", icon="🔗")
+            
+            st.markdown('<a href="#tableau_de_bord_fraud" class="btn-scroll-custom">👉 Aperçu en bas de page</a>', unsafe_allow_html=True)
+            # if st.button("👉 Aperçu en bas de page"):
+            #     st.html("""
+            #         <script>
+            #             document.getElementById('apercu-fraud').scrollIntoView({behavior: 'smooth'});
+            #         </script>
+            #     """, unsafe_allow_javascript=True)
         with col2:
             st.image('media/projets/fraud/resume_stack.png')
     
@@ -181,8 +184,9 @@ with tab1:
 
 
     st.divider()
+    st.markdown('<div id="tableau_de_bord_fraud" style="scroll-margin-top: 5.5rem;"></div>', unsafe_allow_html=True)
     
-    st.subheader("Aperçus de l'application", anchor="apercu-fraud")
+    st.subheader("Aperçus de l'application")
     col1, col2 = st.columns(2)
     with col1:
         st.image('media/projets/fraud/streamlit_fraude.gif', caption="L'interface Streamlit : tableau de suivi des fraudes détectées")
@@ -196,6 +200,4 @@ with tab1:
         st.image('media/projets/fraud/prefect.gif', caption="Le monitoring d'entraînement continu du modèle avec Prefect")
 
 
-if st.button("⬆️ Haut de page"):
-    scroll_to_element("haut_de_page")
-    st.rerun()
+st.markdown('<a href="#haut_de_page" class="btn-scroll-custom">⬆️ Haut de page</a>', unsafe_allow_html=True)

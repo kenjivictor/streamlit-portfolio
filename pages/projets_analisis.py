@@ -1,13 +1,14 @@
 import streamlit as st
 from menu import show_menu
-from streamlit_extras.scroll_to_element import scroll_to_element
+import utils
 
-
+utils.css_scroll_fluide()
 show_menu()
 
-with st.container(key="haut_de_page"):
-    st.title('Mes projets Data')
-    st.header("Analyse & Insights")
+
+st.markdown('<div id="haut_de_page" style="scroll-margin-top: 5rem;"></div>', unsafe_allow_html=True)
+st.title('Mes projets Data')
+st.header("Analyse & Insights")
 
 
 tab1, tab2, tab3 = st.tabs(["🚗 Projet Toys & Models", "🎞️ Projet Film Data Lab", "🌎 Mini-Projet : Séismes"])
@@ -27,10 +28,8 @@ with tab1:
                 **Technologies :**  SQL, Power BI, DAX
                         """)
             
-            if st.button("👉 Aperçu en bas de page"):
-                scroll_to_element("tableau_de_bord_toysmodels", alignment="start")
-                st.rerun()
-                
+            st.markdown('<a href="#tableau_de_bord_toysmodels" class="btn-scroll-custom">👉 Aperçu en bas de page</a>', unsafe_allow_html=True)
+            
             
             
         with col2:
@@ -118,23 +117,24 @@ with tab1:
     with col2:
         st.image("media/projets/toysmodels/dax.png")
         st.write("""
-            1. Variable “mois_prec”
+            **1. Variable ``mois_prec``**
 
-            “DATEADD” décale le contexte de filtre d’un mois en arrière, et “CALCULATE” recalcule la mesure “[Tot_ventes]” avec ce nouveau contexte.
+            ``DATEADD`` décale le contexte de filtre d’un mois en arrière,
+            et ``CALCULATE`` recalcule la mesure ``[Tot_ventes]`` avec ce nouveau contexte
+            -> _Résultat : une valeur représentant le CA du mois N-1_
 
-            **Résultat :** une valeur représentant le CA du mois N-1
+            **2. Le calcul du pourcentage d’évolution**
 
-            2. Le calcul du pourcentage d’évolution
-
-            On fait la différence entre le mois courant et le mois précédent, puis on divise par le mois précédent pour obtenir le taux de variation.
-
-            “DIVIDE” évite les erreurs en cas de division par zéro.
+            On fait la différence entre le mois courant et le mois précédent, puis on divise par le mois précédent 
+            pour obtenir le taux de variation.
+            -> ``DIVIDE`` évite les erreurs en cas de division par zéro.
 
             Enfin, on multiplie par 100 pour obtenir un pourcentage
                 """)
     
-    with st.container(key="tableau_de_bord_toysmodels"):
-        st.subheader("Tableau de bord Power BI")
+    st.divider()
+    st.markdown('<div id="tableau_de_bord_toysmodels" style="scroll-margin-top: 5.5rem;"></div>', unsafe_allow_html=True)
+    st.subheader("Tableau de bord Power BI")
     st.write("""
             Pour finir, voici une courte vidéo qui présente le tableau de bord final. 
 
@@ -158,13 +158,13 @@ with tab2:
 
                 **Technologies :** Python, Pandas, DuckDB, Seaborn, Streamlit, ScikitLearn (Machine Learning), API
                     """)
-            st.link_button("Voir le projet sur GitHub", "https://github.com/kenjivictor/projet_recommandation_films", icon="👉")
-            if st.button("👉 Aperçu en bas de page", key="btn_apercu_filmdatalab"):
-                scroll_to_element("tableau_de_bord_filmdatalab", alignment="start")
-                st.rerun()
+            st.link_button("Voir le projet sur GitHub", "https://github.com/kenjivictor/projet_recommandation_films", icon="🔗")
+            
+            st.markdown('<a href="#tableau_de_bord_filmdatalab" class="btn-scroll-custom">👉 Aperçu en bas de page</a>', unsafe_allow_html=True, width="content")
+            
         with col2:
             st.image("media/projets/filmdatalab/accueil.png", width=400)
-            st.link_button("Live Démo", "https://filmdatalab.streamlit.app/", icon="👉")
+            st.link_button("Live Démo", "https://filmdatalab.streamlit.app/", icon="🔗")
             st.write("**Username :** utilisateur / **Password :** utilisateurMDP")
     
     st.subheader("Contexte")
@@ -223,9 +223,9 @@ with tab2:
         
         """)
     
-    with st.container(key="tableau_de_bord_filmdatalab"):
-        st.subheader("Aperçu de l'application")
-        st.image("media/projets/filmdatalab/accueil.png")
+    st.markdown('<div id="tableau_de_bord_filmdatalab" style="scroll-margin-top: 5.5rem;"></div>', unsafe_allow_html=True)
+    st.subheader("Aperçu de l'application")
+    st.image("media/projets/filmdatalab/accueil.png")
     
 
 # Séismes
@@ -241,9 +241,8 @@ with tab3:
 
                 **Technologies :** Python, Pandas, Power BI, DAX
                         """)
-            if st.button("👉 Aperçu en bas de page", key="btn_apercu_seismes"):
-                scroll_to_element("tableau_de_bord_seismes", alignment="start")
-                st.rerun()
+            st.markdown('<a href="#tableau_de_bord_seismes" class="btn-scroll-custom">👉 Aperçu en bas de page</a>', unsafe_allow_html=True, width="content")
+            
         with col2:
             st.image("media/projets/seismes/Geo_Vigie.jpg", width=400, caption="Organisme fictif (pour l'exemple)", )
             
@@ -321,16 +320,16 @@ with tab3:
     
     st.divider()
     
-    with st.container(key="tableau_de_bord_seismes"):
-        st.subheader("Tableau de bord Power BI")
-        st.write("Ci-dessous les captures d’écrans du tableau de bord interactif : ")
-        col1, col2 = st.columns(2)
-        with col1:
-            st.image('media/projets/seismes/capture1.png')
-        with col2:
-            st.image('media/projets/seismes/capture2.png')
+    st.markdown('<div id="tableau_de_bord_seismes" style="scroll-margin-top: 5.5rem;"></div>', unsafe_allow_html=True)
+    
+    st.subheader("Tableau de bord Power BI")
+    st.write("Ci-dessous les captures d’écrans du tableau de bord interactif : ")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image('media/projets/seismes/capture1.png')
+    with col2:
+        st.image('media/projets/seismes/capture2.png')
 
 
-if st.button("⬆️ Haut de page"):
-    scroll_to_element("haut_de_page")
-    st.rerun()
+    
+st.markdown('<a href="#haut_de_page" class="btn-scroll-custom">⬆️ Haut de page</a>', unsafe_allow_html=True)
