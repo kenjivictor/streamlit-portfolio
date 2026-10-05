@@ -306,7 +306,7 @@ with tab3:
             1. **Vérification de la qualité des données**
                 - Nettoyage et traitement des dates
                 - Filtrage des types de séismes pertinants
-                - Harmonisation et simplification des noms de leiux  
+                - Harmonisation et simplification des noms de lieux  
 
             2. **Création de variables calculées**
                 - Classification des magnitudes (Mineur, Léger, Modéré, Majeur, Destructeur...)

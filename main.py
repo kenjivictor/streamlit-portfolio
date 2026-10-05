@@ -20,6 +20,12 @@ with col1:
             J’aime créer des outils utiles, élégants, documentés, qui rendent les équipes plus autonomes et les données plus fiables.
             """)
     
+    colA, colB = st.columns(2)
+    with colA:
+        st.link_button("🔗 :red[Retrouvez-moi sur LinkedIn !]", "https://www.linkedin.com/in/kenji-victor/", type="tertiary")
+    with colB:
+        st.link_button("🔗 :red[Mes projets sur GitHub !]", "https://github.com/kenjivictor", type="tertiary")
+    
     
 with col2:
     st.write("""
@@ -46,4 +52,9 @@ with col2:
 
 
             """)
-    
+st.divider()
+
+st.write("## Mes projets Data")
+st.write("Vous pouvez parcourir mes derniers projets ici :")
+st.page_link("pages/projets_analisis.py", label="**Analyse & Insights** : Projets Data Analisis", icon="👉", )
+st.page_link("pages/projets_engineering.py", label="**Ingénierie & Architecture** : Projets Data Engineering", icon="👉")
