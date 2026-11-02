@@ -1,13 +1,11 @@
 import streamlit as st
-from menu import show_menu
 
-show_menu()
 
 st.write('# Mes compétences')
 
-tab1, tab2 = st.tabs([" Compétences techniques", " Soft skills"])
+col1, col2 = st.columns(2)
 
-with tab1:
+with col1:
 
     st.write("## Compétences techniques")
     st.write("### Data Engineering")
@@ -36,7 +34,7 @@ with tab1:
             - **Applications** : Notion, Streamlit, Power Apps, Power Automate
                     """ )
     
-with tab2:
+with col2:
     st.write("## Soft skills")
     
     st.write("""

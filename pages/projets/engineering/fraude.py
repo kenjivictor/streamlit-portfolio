@@ -1,47 +1,43 @@
 import streamlit as st
-from menu import show_menu
 import utils
 
 utils.css_scroll_fluide()
-show_menu()
 
 st.markdown('<div id="haut_de_page" style="scroll-margin-top: 5rem;"></div>', unsafe_allow_html=True)
-st.title('Mes projets Data')
-st.subheader("Ingénierie & Architecture")
 
+st.title("💵 Fraude bancaire")
+st.header("Application de détection en temps réel")
 
-tab1, = st.tabs(["💵 Détection de fraude bancaire"])
-
-with tab1:
-    st.header("💵 Détection de fraude bancaire")
-    with st.container(border=True):
-        col1, col2 = st.columns(2)
-        with col1:
-            st.markdown("""
-                ***Date de publication :** Février 2026*
-
-                **Description** : Système de simulation de détection de fraude en temps réel avec amélioration continue et monitoring du système
-
-                **Technologies** : Python, Pandas, Docker, Streamlit, XGBoost (Machine Learning), FastAPI, Grafana, Prometheus, Redis, Prefect, BigQuery (Google Cloud Platform)
-                        """)
-            st.link_button("Voir le projet sur GitHub", "https://github.com/kenjivictor/projet_fraude_cb", icon="🔗")
-            
-            st.markdown('<a href="#tableau_de_bord_fraud" class="btn-scroll-custom">👉 Aperçu en bas de page</a>', unsafe_allow_html=True)
-            # if st.button("👉 Aperçu en bas de page"):
-            #     st.html("""
-            #         <script>
-            #             document.getElementById('apercu-fraud').scrollIntoView({behavior: 'smooth'});
-            #         </script>
-            #     """, unsafe_allow_javascript=True)
-        with col2:
-            st.image('media/projets/fraud/resume_stack.png')
-    
+with st.container(border=True):
     col1, col2 = st.columns(2)
     with col1:
-            
-        st.subheader("Contexte")
-    
-        st.write("""
+        st.markdown("""
+                ***Date de publication :** Février 2026*
+
+                **Description :** Système de simulation de détection de fraude en temps réel avec amélioration continue et monitoring du système
+
+                **Technologies** : Python, Pandas, Docker, Streamlit, XGBoost (Machine Learning), FastAPI, Grafana, Prometheus, Redis, Prefect, BigQuery (Google Cloud Platform)
+                
+                **Catégorie :** Ingénierie & Architecture
+                        """)
+        st.link_button("Voir le projet sur GitHub", "https://github.com/kenjivictor/projet_fraude_cb", icon="🔗")
+
+        st.markdown('<a href="#tableau_de_bord_fraud" class="btn-scroll-custom">👉 Aperçu en bas de page</a>', unsafe_allow_html=True)
+        # if st.button("👉 Aperçu en bas de page"):
+        #     st.html("""
+        #         <script>
+        #             document.getElementById('apercu-fraud').scrollIntoView({behavior: 'smooth'});
+        #         </script>
+        #     """, unsafe_allow_javascript=True)
+    with col2:
+        st.image('media/projets/fraud/resume_stack.png')
+
+col1, col2 = st.columns(2)
+with col1:
+
+    st.subheader("Contexte")
+
+    st.write("""
                 
             Dans le cadre de ma formation en data, nous avons conçu en groupe un **système complet de détection de fraude en temps réel**, 
             allant du stockage des données jusqu’au monitoring des services en production, le tout s’améliorant automatiquement.
@@ -50,12 +46,12 @@ with tab1:
             flux continu, stockage, monitoring et réentrainement automatique.
                 
                 """)
-    
-    with col2:
-    
-        st.subheader("Données")
-    
-        st.write("""
+
+with col2:
+
+    st.subheader("Données")
+
+    st.write("""
                     
             Nous avons utilisé un dataset fictif de transactions financières provenant de **Kaggle** ([PaySim, plus de 6 millions de lignes](https://www.kaggle.com/datasets/ealaxi/paysim1/data)).
 
@@ -67,16 +63,16 @@ with tab1:
             Cela nous a permis d’imiter un système recevant des opérations en continu.
                 
                 """)
-    
-    st.divider()
-    
-    st.subheader("Fonctionnement du système")
-    
-    st.write("Le projet repose sur une architecture orientée données et temps réel.")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.write("""
+
+st.divider()
+
+st.subheader("Fonctionnement du système")
+
+st.write("Le projet repose sur une architecture orientée données et temps réel.")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.write("""
             #### 🔹 Simulation temps réel
 
             Nous avons mis en place :
@@ -102,9 +98,9 @@ with tab1:
             Le système s’adapte ainsi aux nouvelles techniques de fraude.
                 
                 """)
-    
-    with col2:
-        st.write("""
+
+with col2:
+    st.write("""
                         
             #### 🔹Conteneurisation
 
@@ -117,22 +113,22 @@ with tab1:
             Cette approche rend l’architecture reproductible et proche d’un déploiement réel :
                 
                 """)
-        st.image('media/projets/fraud/pipeline.png')
-    
-    st.divider()
-    
-    st.subheader("Monitoring et observabilité")
-    
-    st.write("""
+    st.image('media/projets/fraud/pipeline.png')
+
+st.divider()
+
+st.subheader("Monitoring et observabilité")
+
+st.write("""
         
         
         Un modèle performant c'est bien. Un modèle performant soutenu par une surveillance continue de l’infrastructure , c'est mieux ! 
         Cette couche de monitoring recrée un environnement quasi réel d’entreprise, indispensable pour anticiper les risques et assurer une exploitation fluide.
             """)
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.write("""
+
+col1, col2 = st.columns(2)
+with col1:
+    st.write("""
                 
             #### Technos de monitoring
             
@@ -144,8 +140,8 @@ with tab1:
             - **Prometheus** pour la collecte des métriques
             - **Grafana** pour la visualisation des métriques
                 """)
-    with col2:
-        st.write("""
+with col2:
+    st.write("""
                 
             #### Métriques surveillées
             
@@ -167,11 +163,11 @@ with tab1:
             - évolution des performances
                 """)
 
-    st.divider()
+st.divider()
 
-    st.subheader("Compétences mobilisées")
-    
-    st.write("""
+st.subheader("Compétences mobilisées")
+
+st.write("""
         Ce projet m’a permis de travailler sur :
 
         - Architecture data cloud (avec GCP)
@@ -183,21 +179,21 @@ with tab1:
             """)
 
 
-    st.divider()
-    st.markdown('<div id="tableau_de_bord_fraud" style="scroll-margin-top: 5.5rem;"></div>', unsafe_allow_html=True)
-    
-    st.subheader("Aperçus de l'application")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.image('media/projets/fraud/streamlit_fraude.gif', caption="L'interface Streamlit : tableau de suivi des fraudes détectées")
-    with col2:
-        st.image('media/projets/fraud/performances_modele.gif', caption="L'interface Streamlit : performances du modèle")
-        
-    col1, col2 = st.columns(2)
-    with col1:
-        st.image('media/projets/fraud/grafana.gif', caption="Le monitoring d'infrastructure avec Grafana")
-    with col2:
-        st.image('media/projets/fraud/prefect.gif', caption="Le monitoring d'entraînement continu du modèle avec Prefect")
+st.divider()
+st.markdown('<div id="tableau_de_bord_fraud" style="scroll-margin-top: 5.5rem;"></div>', unsafe_allow_html=True)
+
+st.subheader("Aperçus de l'application")
+col1, col2 = st.columns(2)
+with col1:
+    st.image('media/projets/fraud/streamlit_fraude.gif', caption="L'interface Streamlit : tableau de suivi des fraudes détectées")
+with col2:
+    st.image('media/projets/fraud/performances_modele.gif', caption="L'interface Streamlit : performances du modèle")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.image('media/projets/fraud/grafana.gif', caption="Le monitoring d'infrastructure avec Grafana")
+with col2:
+    st.image('media/projets/fraud/prefect.gif', caption="Le monitoring d'entraînement continu du modèle avec Prefect")
 
 
 st.markdown('<a href="#haut_de_page" class="btn-scroll-custom">⬆️ Haut de page</a>', unsafe_allow_html=True)

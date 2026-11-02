@@ -275,17 +275,6 @@ wheels = [
 ]
 
 [[package]]
-name = "kenjivictor-github-io"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "streamlit" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "streamlit", specifier = ">=1.60.0" }]
-
-[[package]]
 name = "markupsafe"
 version = "3.0.3"
 source = { registry = "https://pypi.org/simple" }
@@ -815,6 +804,17 @@ sdist = { url = "https://files.pythonhosted.org/packages/7a/46/fa437e9651af1dbe7
 wheels = [
     { url = "https://files.pythonhosted.org/packages/2f/69/7a1984df015d01875c9ac79bfda7c31492cc94f81a2625303ce4707188e5/streamlit-1.60.0-py3-none-any.whl", hash = "sha256:d167d67cf94537600a6e378d8aa0c31eabab26beb243e2a51de9842e2872e393", size = 10419153, upload-time = "2026-07-21T21:13:55.113Z" },
 ]
+
+[[package]]
+name = "streamlit-portfolio"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "streamlit" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "streamlit", specifier = ">=1.60.0" }]
 
 [[package]]
 name = "tenacity"
