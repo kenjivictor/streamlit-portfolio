@@ -6,25 +6,27 @@ st.write('# Mes compétences')
 col1, col2 = st.columns(2)
 
 with col1:
-
-    st.write("## Compétences techniques")
-    st.write("### Data Engineering")
     
-    st.write( """
-            - **Python :** préparation des données, scripts, modèles
-            - **Bases de données** : SQL, NoSQL, Data Warehouses
-            - **Pipelines & ETL** : Airflow, Docker
-            - **Cloud** : GCP, AWS
-            - **Machine Learning** : Scikit-Learn (NLP, régression, classification, clustering)
-            - **Automatisation & Data engineering :** web scraping, API, regex
-            """ )
+    st.write("## Compétences techniques")
+    
     
     st.write("### Data Analisis")
     
     st.write( """
+            - **Python :** préparation des données, scripts
             - **Outils BI :** Power BI & DAX, Matplotlib, Seaborn, Plotly Express
             - **SQL avancé :** requêtage, jointures, agrégations, fenêtrage, CTE
+            - **Automatisation :** web scraping, API, regex
                 """ )
+
+    st.write("### Data Engineering")
+    
+    st.write( """
+            - **Bases de données** : SQL, NoSQL, Data Warehouses
+            - **Pipelines & ETL** : Airflow, Docker
+            - **Cloud** : GCP, AWS
+            - **Machine Learning** : Scikit-Learn (NLP, régression, classification, clustering)
+            """ )
     
     st.write("### Compétences transverses")
     
@@ -39,22 +41,22 @@ with col2:
     
     st.write("""
         
-        - **Avoir l’esprit d’équipe**  
+        - **Esprit d’équipe**  
         Capacité à collaborer efficacement, à partager l’information et à contribuer à une dynamique collective positive.
 
-        - **Avoir le sens du service**  
+        - **Sens du service**  
         Volonté constante de comprendre les besoins des utilisateurs et d’apporter des solutions fiables, utiles et adaptées.
 
-        - **Faire preuve d’autonomie**  
+        - **Autonomie**  
         Aptitude à prendre en charge un sujet, à avancer de manière structurée et à atteindre les objectifs sans supervision constante.
 
-        - **Faire preuve de créativité, d’inventivité**  
+        - **Créativité**  
         Faculté à proposer des idées nouvelles, à imaginer des solutions originales et à sortir des schémas habituels pour améliorer les résultats.
 
-        - **Faire preuve de rigueur et de précision**  
+        - **Rigueur**  
         Attention portée aux détails, respect des bonnes pratiques et production de livrables fiables, maîtrisés et exempts d’erreurs.
 
-        - **Capacité à travailler en mode projet**  
+        - **Travail en mode projet**  
         Maîtrise des méthodes de gestion de projet, avec une organisation claire, un suivi des étapes et une coordination efficace des acteurs.
         
         """)
